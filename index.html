@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Szabó János Grafikus és UI designer weboldala">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="szabó, jános, zoltán, portfólió, design, grafikus, magyar, ideart, linos, bihar, oradea, romania, janix, janixart, budapest, hungary, hungarian, ui, ux, designer, typography, graphic design, illustration, branding, lettering, interaction, digital, print, packaging, magazine, book, luxury, fashion, interactive, art, Icon, logo, Identity, html5, css3, freelancer, developer, responsive, apps, ui design, webdesign, webdesigner, product design, ux design, ux designer">
+    <title>Pixelzsoldos</title>
+    <meta property="og:title" content="Pixelzsoldos">
+    <meta property="og:description" content="Szabó János Grafikus és UI designer weboldala">
+    <meta property="og:image" content="http://pixelzsoldos.hu/assets/images/thumbnail.png">
+    <meta property="og:url" content="http://www.pixelzsoldos.hu/index.html">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="image_src" href="http://pixelzsoldos.hu/assets/images/thumbnail.png" />
+    <script type="text/javascript">
+
+        var ajax = new XMLHttpRequest();
+
+        function sendMail() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            var responseText = document.getElementById("response-text");
+
+            if(name.length == 0) {
+                responseText.innerHTML = "<div class='alert alert-danger'>Hibás név.</div>";
+                return;
+            }
+
+            if(!validateEmail(email)) {
+                responseText.innerHTML = "<div class='alert alert-danger'>Hibás email cím.</div>";
+                return;
+            }
+
+            if(message.length == 0) {
+                responseText.innerHTML = "<div class='alert alert-danger'>Az üzenet tartalma nem lehet üres.</div>";
+                return;
+            }
+
+            var data = "name="+encodeURIComponent(name)+"&email="+email+"&message="+encodeURIComponent(message);
+            ajax.open("POST", "sendmail.php");
+            ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            ajax.send(data);
+
+        }
+
+        function validateEmail(email) {
+            return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email);
+        }
+
+        ajax.onreadystatechange = function() {
+
+            var responseText = document.getElementById("response-text");
+
+            if(ajax.readyState == 4 && ajax.status == 200) {
+                responseText.innerHTML = "<div class='alert alert-success'>Sikeres küldés. Hamarosan válaszolni fogok.</div>";
+                console.log(ajax.responseText);
+            } 
+
+            if(ajax.readyState == 4 && ajax.status != 200) {
+                responseText.innerHTML = "<div class='alert alert-danger'>Az üzenetet nem sikerült elküldeni.</div>";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!--====== PRELOADER PART START ======-->
+
+
+    <div class="preloader">
+        <div class="loader_34">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== PRELOADER ENDS START ======-->
+
+    <!--====== HEADER PART START ======-->
+
+    <header id="home" class="header-area">
+        <div class="navigation fixed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="#">
+                                <img src="/assets/images/logo_horizontal.svg" alt="logo">
+                            </a> <!-- Logo -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item active"><a class="page-scroll" href="#home">Kezdőoldal</a></li>
+                                    <li class="nav-item"><a class="page-scroll" href="#about">Rólam</a></li>
+                                    <li class="nav-item"><a class="page-scroll" href="#work">Munkáim</a></li>
+                                    <li class="nav-item"><a class="page-scroll" href="#contact">Kapcsolat</a></li>
+                                    <li class="nav-item"><a class="page-scroll" href="english.html">English</a></li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- navigation -->
+
+        <div id="parallax" class="header-content d-flex align-items-center">
+            <div class="header-shape shape-one layer" data-depth="0.10">
+                <img src="assets/images/banner/shape/shape-1.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-tow layer" data-depth="0.30">
+                <img src="assets/images/banner/shape/shape-2.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-three layer" data-depth="0.40">
+                <img src="assets/images/banner/shape/shape-3.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-fore layer" data-depth="0.60">
+                <img src="assets/images/banner/shape/shape-2.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-five layer" data-depth="0.20">
+                <img src="assets/images/banner/shape/shape-1.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-six layer" data-depth="0.15">
+                <img src="assets/images/banner/shape/shape-4.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-seven layer" data-depth="0.50">
+                <img src="assets/images/banner/shape/shape-5.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-eight layer" data-depth="0.40">
+                <img src="assets/images/banner/shape/shape-3.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-nine layer" data-depth="0.20">
+                <img src="assets/images/banner/shape/shape-6.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="header-shape shape-ten layer" data-depth="0.30">
+                <img src="assets/images/banner/shape/shape-3.png" alt="Shape">
+            </div> <!-- header shape -->
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="header-content-right">
+                            <h4 class="sub-title">Helló, Én vagyok</h4>
+                            <h1 class="title">Szabó János</h1>
+                            <p>Grafikus és UI/UX Designer</p>
+                            <a class="main-btn page-scroll" href="#work">Munkáim</a>
+                        </div> <!-- header content right -->
+                    </div>
+                    <div class="col-lg-6 offset-xl-1">
+                        <div class="header-image d-none d-lg-block">
+                            <picture>
+                                <source srcset="assets/images/banner/hero.png" type="image/png">
+                                <source srcset="assets/images/banner/hero.png" type="image/png"> 
+                                <img src="assets/images/banner/hero.png" alt="Pixelzsoldos">
+                            </picture>
+                        </div> <!-- header image -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+            <div class="header-social">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="header-social-icon">
+                                <ul>
+                                    <li><a href="https://www.linkedin.com/in/pixelzsoldos" target="_blank"><i class="lni-linkedin-original"></i></a></li>
+                                    <li><a href="https://www.instagram.com/pixelzsoldos/" target="_blank"><i class="lni-instagram-original"></i></a></li>
+                                    <li><a href="https://twitter.com/pixelzsoldos" target="_blank"><i class="lni-twitter-original"></i></a></li>
+                                </ul>
+                            </div> <!-- header social -->
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </div> <!-- header social -->
+        </div> <!-- header content -->
+    </header>
+
+    <!--====== HEADER PART ENDS ======-->
+
+    <!--====== ABOUT PART START ======-->
+
+    <section id="about" class="about-area pt-125 pb-130">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <div class="section-title text-center">
+                        <h2 class="title">Rólam</h2>
+                        
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-content mt-50">
+                        
+                        <h5 class="about-title">Heló a nevem Szabó János</h5>
+                        <p>Gyerekkorom óta érdekel a rajz és festészet. Miután „megfertőzött” a digitális világ, tervező grafikával kezdtem hobbiként foglalkozni majd grafikus lettem.</p>
+                        <ul class="clearfix">
+                            <li>
+                                <div class="single-info d-flex align-items-center">
+                                    <div class="info-icon">
+                                        <i class="lni-map-marker"></i>
+                                    </div>
+                                    <div class="info-text">
+                                        <p><span>Lakhely:</span> Budapest</p>
+                                        
+                                    </div>
+                                </div> <!-- single info -->
+                            </li>
+                            
+                        </ul>
+                    </div> <!-- about content -->
+                    
+                </div>
+                <div class="col-xl-6">
+                    <div class="about-skills pt-25">
+                        <div class="skill-item mt-25">
+                            <div class="skill-header">
+                                <h6 class="skill-title">Abode Creative Cloud</h6>
+                                <div class="skill-percentage">
+                                    <div class="count-box counted">
+                                        <span class="counter">90</span>
+                                    </div>
+                                    %
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="bar-inner">
+                                    <div class="bar progress-line" data-width="90"></div>
+                                </div>
+                            </div>
+                        </div> <!-- skill item -->
+                        <div class="skill-item mt-25">
+                            <div class="skill-header">
+                                <h6 class="skill-title">HTML/CSS</h6>
+                                <div class="skill-percentage">
+                                    <div class="count-box counted">
+                                        <span class="counter">80</span>
+                                    </div>
+                                    %
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="bar-inner">
+                                    <div class="bar progress-line" data-width="80"></div>
+                                </div>
+                            </div>
+                        </div> <!-- skill item -->
+                        <div class="skill-item mt-25">
+                            <div class="skill-header">
+                                <h6 class="skill-title">Figma</h6>
+                                <div class="skill-percentage">
+                                    <div class="count-box counted">
+                                        <span class="counter">90</span>
+                                    </div>
+                                    %
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="bar-inner">
+                                    <div class="bar progress-line" data-width="90"></div>
+                                </div>
+                            </div>
+                        </div> <!-- skill item -->
+                    </div> <!-- about skills -->
+                </div>
+            </div> <!-- row -->
+           
+        </div> <!-- container -->
+    </section>
+
+   
+    <!--====== ABOUT PART ENDS ======-->
+
+
+    <!--====== CALL TO ACTION PART START ======-->
+
+    <section id="call-to-action" class="call-to-action pt-125 pb-130 bg_cover" style="background-image: url(assets/images/call-to-action.jpg)">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-9">
+                    <div class="call-action-content text-center">
+                        <h2 class="action-title">Van egy projekt a fejedben?</h2>
+                        
+                        <ul>
+                            <li><a class="main-btn custom" href="cv_hun.pdf" target="_blank">CV Letöltés</a></li>
+                            <li><a class="main-btn custom-2 page-scroll" href="#contact">Bérelj fel</a></li>
+                        </ul>
+                    </div> <!-- call action content -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== CALL TO ACTION PART ENDS ======-->
+
+    <!--====== WORK PART START ======-->
+
+    <section id="work" class="work-area pt-125 pb-130">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-auto">
+                    <div class="section-title text-center">
+                        <h2 class="title">Munkáim</h2>
+                        
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-work text-center mt-30">
+                        <div class="work-image">
+                            <img src="assets/images/work/w-1.png" alt="beginner angler">
+                        </div>
+                        <div class="work-overlay">
+                            <div class="work-content">
+                                <h3 class="work-title">Logó</h3>
+                                <ul>
+                                    <li><a class="image-popup" href="assets/images/work/w-1.png"><i class="lni lni-full-screen"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- single work -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-work text-center mt-30">
+                        <div class="work-image">
+                            <img src="assets/images/work/w-2.png" alt="work">
+                        </div>
+                        <div class="work-overlay">
+                            <div class="work-content">
+                                <h3 class="work-title">Arculat</h3>
+                                <ul>
+                                    <li><a class="image-popup" href="assets/images/work/w-2b.png"><i class="lni lni-full-screen"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- single work -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-work text-center mt-30">
+                        <div class="work-image">
+                            <img src="assets/images/work/w-3.png" alt="work">
+                        </div>
+                        <div class="work-overlay">
+                            <div class="work-content">
+                                <h3 class="work-title">Arculat</h3>
+                                <ul>
+                                    <li><a class="image-popup" href="assets/images/work/w-3.png"><i class="lni lni-full-screen"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- single work -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-work text-center mt-30">
+                        <div class="work-image">
+                            <img src="assets/images/work/w-4.png" alt="work">
+                        </div>
+                        <div class="work-overlay">
+                            <div class="work-content">
+                                <h3 class="work-title">Kis arculat</h3>
+                                <ul>
+                                    <li><a class="image-popup" href="assets/images/work/w-4b.png"><i class="lni lni-full-screen"></i></a></li>                                    
+                                    <li><a href="https://www.instagram.com/p/CDGGWazhkmL/" target="_blank"><i class="lni-link"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- single work -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-work text-center mt-30">
+                        <div class="work-image">
+                            <img src="assets/images/work/w-5.png" alt="work">
+                        </div>
+                        <div class="work-overlay">
+                            <div class="work-content">
+                                <h3 class="work-title">Logó</h3>
+                                <ul>
+                                    <li><a class="image-popup" href="assets/images/work/w-5.png"><i class="lni lni-full-screen"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- single work -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-work text-center mt-30">
+                        <div class="work-image">
+                            <img src="assets/images/work/w-6.png" alt="work">
+                        </div>
+                        <div class="work-overlay">
+                            <div class="work-content">
+                                <h3 class="work-title">Logó</h3>
+                                <ul>
+                                    <li><a class="image-popup" href="assets/images/work/w-6b.png"><i class="lni lni-full-screen"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- single work -->
+                </div>
+            </div> <!-- row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="work-more text-center mt-50">
+                        <a class="main-btn" href="https://www.instagram.com/pixelzsoldos/" target="_blank">további munkáim</a>
+                    </div> <!-- work more -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== WORK PART ENDS ======-->
+
+<!--====== client PART START ======-->
+
+
+    <section id="clients" class="pt-125 pb-130 gray-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center pb-25">
+                        <h2 class="title">Velük már dolgoztam</h2>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="row justify-content-center justify-content-md-center">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client1.svg" alt="armani">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client2.svg" alt="poms">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client3.svg" alt="wavemaker">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client4.svg" alt="reklámeszköz">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client5.svg" alt="praktiker">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client6.svg" alt="decathlon">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client7.svg" alt="iparkamara">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client8.svg" alt="cordia">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <embed src="assets/images/clients/client9.svg" alt="triumph">
+                </div>
+            </div>  <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== client PART ENDS ======-->
+
+   <!--====== CONTACT PART START ======-->
+
+    <section id="contact" class="contact-area pt-125 pb-130">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center pb-25">
+                        <h2 class="title">Kapcsolat</h2>
+                        <p></p>
+                    </div> <!-- section title -->
+                </div>
+            </div> <!-- row -->
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="contact-form pt-30">
+                        <form id="contact-form"><div id="response-text"></div>
+                            <div class="single-form">
+                                <input type="text" name="name" placeholder="Név" id="name">
+                            </div> <!-- single form -->
+                            <div class="single-form">
+                                <input type="email" name="email" placeholder="Email" id="email">
+                            </div> <!-- single form -->
+                            <div class="single-form">
+                                <textarea name="message" placeholder="Üzenet" id="message"></textarea>
+                            </div> <!-- single form -->
+                            <p class="form-message"></p>
+                            <div class="single-form justify-content-center">
+                                <button class="main-btn" type="submit" id="send-email" onclick="sendMail()">Üzenet küldése</button>
+                            </div> <!-- single form -->
+                        </form>
+                    </div> <!-- contact form -->
+                </div>
+
+                
+                                
+                            
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+   <!--====== CONTACT PART ENDS ======-->
+
+    <!--====== FOOTER PART START ======-->
+
+    <footer id="footer" class="footer-area">
+        <div class="footer-widget pt-130 pb-130">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="footer-content text-center">
+                            <a href="#">
+                                <img src="/assets/images/logo_horizontal_white.png" alt="logo">
+                            </a>
+                            <p><div class="quote" id="citatum435143" style="color:white"><script language="JavaScript" type="text/JavaScript" src="https://www.citatum.hu/js.php?kategoria=M%FBv%E9szet&async=1&r=435143" async></script></div></p>
+                            <ul>
+                                <li><a href="https://www.linkedin.com/in/pixelzsoldos" target="_blank"><i class="lni-linkedin-original"></i></a></li>
+                                <li><a href="https://www.instagram.com/pixelzsoldos/" target="_blank"><i class="lni-instagram-original"></i></a></li>
+                                <li><a href="https://twitter.com/pixelzsoldos" target="_blank"><i class="lni-twitter-original"></i></a></li>
+                            </ul>
+                        </div> <!-- footer content -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer widget -->
+        <div class="footer-copyright pb-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text text-center pt-20">
+                            <p>Copyright © <script>document.write(new Date().getFullYear())</script></a></p>
+                        </div> <!-- copyright text -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer widget -->
+    </footer>
+
+    <!--====== FOOTER PART ENDS ======-->
+
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163931406-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-163931406-1');
+    </script>
+
+
+    <!--====== jquery js ======-->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+    <!--====== Parallax js ======-->
+    <script src="assets/js/parallax.min.js"></script>
+
+    <!--====== Counter Up js ======-->
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+
+
+    <!--====== Appear js ======-->
+    <script src="assets/js/jquery.appear.min.js"></script>
+
+    <!--====== Scrolling js ======-->
+    <script src="assets/js/scrolling-nav.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+
+
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
